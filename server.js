@@ -21,6 +21,10 @@ var user = require('./routes/user');
 
 
 io.on('connection', function (socket) {
+    socket.emit('newUserConnected',null)
+    
+    io.sockets.emit('broadcast',{ description:  ' clients connected!'});
+
     console.log('a user connected ' + socket.id,);
     socket.on('disconnect',()=>{
         console.log(socket.id +" is dicconnected")

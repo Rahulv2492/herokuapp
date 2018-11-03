@@ -68,6 +68,6 @@ sequelize
     })
 
 // uncomment for creating table
-sequelize.sync({ force: false, match: /migente$/ });
+sequelize.sync({ force: false, match: /rahulvis_remote$/ });
 
 module.exports = sequelize;

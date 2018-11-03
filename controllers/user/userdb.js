@@ -28,19 +28,20 @@ module.exports.getAllUsers = (email) => {
     });
 };
 
-// module.exports.updateUserDetails = (input) => {
-//     return new Promise((resolve, reject) => {
-//         return userModel.update(
-//             input.body,
-//             {
-//                 where: { userId: input.decoded.user.userId }
-//             }).then(result => {
-//                 resolve(JSON.parse(result));
-//             }).catch((err) => {
-//                 reject(err);
-//             })
-//     });
-// }
+module.exports.updateUserDetails = (input) => {
+    console.log("dsdsf",input.decoded.user[0].userId)
+    return new Promise((resolve, reject) => {
+        return userModel.update(
+            input.body,
+            {
+                where: { userId: input.decoded.user[0].userId }
+            }).then(result => {
+                resolve(JSON.parse(result));
+            }).catch((err) => {
+                reject(err);
+            })
+    });
+}
 
 // module.exports.uploadProfilePicture = (data, userid) => {
 //     return new Promise((resolve, reject) => {

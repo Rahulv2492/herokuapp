@@ -5,8 +5,8 @@ var checkToken  = require("./../middleware/tockenChecker");
 const router = express.Router({ caseSensitive: true });
 
 router.post('/addUserDetails',  user.addUserDetails);
-router.get('/getAllUsers',  user.getAllUsers);
-// router.put('/uploadProfilePicture', checkToken.ensureAuth, user.uploadProfilePicture);
+router.get('/getAllUsers', checkToken.ensureAuth, user.getAllUsers);
+router.put('/updateUserDetails', checkToken.ensureAuth, user.updateUserDetails);
 
 module.exports = router;
 

@@ -2,6 +2,7 @@
 // var userModel  = require("./../models/user/user';
 // var subcategoryModel  = require("./../models/subcategory/subcategory';
 var userModel  = require("./../models/user/user");
+var interestsModal  = require("./../models/interests/interests");
 // var playlistModel  = require("./../models/playlist/playlist';
 // var userplaylistCategorytModel  = require("./../models/userplaylistCategory/userplaylistCategory';
 // var likesModel  = require("./../models/likes/likes';
@@ -142,11 +143,112 @@ userModel.sync({ force: false }).then(() => {
 //     console.error('Error while creating userinterest table !', err);
 // });
 
-// playlistModel.sync({ force: false }).then(() => {
-//     console.log('playlist table created!');
-// }).catch((err) => {
-//     console.error('Error while creating userinterest table', err);
-// });
+interestsModal.sync({ force: false }).then(() => {
+    interestsModal.bulkCreate( [
+        {
+            "interestsName": "Biking",
+            "colorCode": "#ff6f41"
+        },
+        {
+            "interestsName": "Camping",
+            "colorCode": "#21e6a7"
+        },
+        {
+            "interestsName": "Cars",
+            "colorCode": "#e7272d"
+        },
+        {
+            "interestsName": "Cooking",
+            "colorCode": "#d5b584"
+        },
+        {
+            "interestsName": "Dancing",
+            "colorCode": "#453953"
+        },
+        {
+            "interestsName": "Diving",
+            "colorCode": "#118df0"
+        },
+        {
+            "interestsName": "Fashion",
+            "colorCode": "#b463a6"
+        },
+        {
+            "interestsName": "Fishing & Hunting",
+            "colorCode": "#343b99"
+        },
+        {
+            "interestsName": "Games",
+            "colorCode": "#61b136"
+        },
+        {
+            "interestsName": "Hobbies & Crafts",
+            "colorCode": "#fb607f"
+        },
+        {
+            "interestsName": "Hockey",
+            "colorCode": "#3bbbb3"
+        },
+        {
+            "interestsName": "Lying on the beach",
+            "colorCode": "#b0d553"
+        },
+        {
+            "interestsName": "Meditation & Yoga",
+            "colorCode": "#becfd6"
+        },
+        {
+            "interestsName": "Movies",
+            "colorCode": "#0e5f76"
+        },
+        {
+            "interestsName": "Museums & Art",
+            "colorCode": "#ffc045"
+        },
+        {
+            "interestsName": "Music & Concerts",
+            "colorCode": "#00c3ff"
+        },
+        {
+            "interestsName": "Nature",
+            "colorCode": "#3bb873"
+        },
+        {
+            "interestsName": "Party & Night Clubs",
+            "colorCode": "#d14848"
+        },
+        {
+            "interestsName": "Reading books",
+            "colorCode": "#7c064d"
+        },
+        {
+            "interestsName": "Sailing",
+            "colorCode": "#ff926b"
+        },
+        {
+            "interestsName": "Shopping",
+            "colorCode": "#95cadb"
+        },
+        {
+            "interestsName": "Sports",
+            "colorCode": "#dde55c"
+        },
+        {
+            "interestsName": " Travelling",
+            "colorCode": "#264aff"
+        },
+        {
+            "interestsName": "Watching TV",
+            "colorCode": "#e18237"
+        }
+    ]).then(result => {
+            console.log('user table created!');
+        }).catch(err => {
+            console.log(err);
+        });
+}).catch((err) => {
+    console.error('Error while creating user table', err);
+});
 
 // userplaylistCategorytModel.sync({ force: false }).then(() => {
 //     console.log('userplaylistCategories table created!');
